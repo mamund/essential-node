@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tasks</title>
+    <style>
+      form {margin:0; float:left;}
+      label {width:150px; float:left;}
+      input.task {width:150px;}
+      li {float:none; clear:both;}
+      ul {list-style-type:none; padding-left:0;}
+    </style>
+  </head>
+  <body>
+    <h1>Tasks</h1>
+    <p class="date-time">Date: {@dateTime}</p>
+    <ul>
+    {@output}
+    <li>
+      <form class="new" action="{@homeUrl}" method="post">
+        <input type="text" name="task" value="" class="task"
+          placeholder="something to do"
+          required="true" autofocus="true"/>
+        <input type="submit" value="Add">
+      </form>
+    </li>
+    </ul>
+  </body>
+</html>
