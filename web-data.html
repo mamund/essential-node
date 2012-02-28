@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timeline data</title>
+    <style>
+      dt {font-weight:bold;}
+      dd {font-style:italic;}
+    </style>
+    <script>
+      // open links in new tab/window
+      window.onload = function() {
+        var i, x, coll;
+        coll = document.getElementsByTagName('a');
+        for(i=0, x=coll.length; i<x; i++) {
+          coll[i].setAttribute('target', '_blank');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h3>{@remoteHost}</h3>
+    <dl>
+      {@output}
+    </dl>
+  </body>
+</html>
