@@ -4,11 +4,10 @@
 // declare module to use
 var http = require('http');
 
-// handle requests
+// handle all requests
 function handler(req, res) {
-
   res.writeHead(200, 'OK',{'Content-Type':'text/plain'});
-  res.end('Hello, node!');
+  res.end('Hello, node!  from '+ req.url);
 }
 
 // listen for requests
