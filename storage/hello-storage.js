@@ -65,7 +65,7 @@ function handler(req, res) {
   }
 
   function getHomePage() {
-    fs.readFile('storage-home.html','ascii', function(err, data) {
+    fs.readFile('./storage/home.html','ascii', function(err, data) {
       if(err) {
         showError(500, err.message);
       }

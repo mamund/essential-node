@@ -36,7 +36,7 @@ function handler(req, res) {
 
   /* get home template */
   function getHomePage() {
-    fs.readFile('web-home.html','ascii',sendHomePage);
+    fs.readFile('./web/home.html','ascii',sendHomePage);
   }
 
   function sendHomePage(err, data) {
@@ -73,7 +73,7 @@ function handler(req, res) {
 
       clientRes.on('end', function() {
         m.remoteData = JSON.parse(body);
-        fs.readFile('web-data.html', 'ascii', sendData);
+        fs.readFile('./web/data.html', 'ascii', sendData);
       });
     });
 

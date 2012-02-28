@@ -32,7 +32,7 @@ function handler(req, res) {
     }
     else {
       if(fs.statSync(m.name).isDirectory()) {
-        m.name += '/files.html';
+        m.name += './files/home.html';
       }
       fs.readFile(m.name, "binary", sendFile);
     }

@@ -40,7 +40,7 @@ function handler(req, res) {
 
   /* get home template */
   function getHomePage() {
-    fs.readFile('auth-home.html', 'ascii', sendHomePage);
+    fs.readFile('./auth/home.html', 'ascii', sendHomePage);
   }
   function sendHomePage(err, data) {
     if(err) {
@@ -56,7 +56,7 @@ function handler(req, res) {
 
   /* get home template */
   function getSecurePage() {
-    fs.readFile('auth-secure.html', 'ascii', sendSecurePage);
+    fs.readFile('./auth/secure.html', 'ascii', sendSecurePage);
   }
   function sendSecurePage(err, data) {
     if(err) {
