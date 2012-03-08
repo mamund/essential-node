@@ -89,7 +89,7 @@ function handler(req, res) {
     req.credentials = credentials;
 
     // check the credentials:
-    if(credentials[0]==='admin' && credentials[1]==='secret') {
+    if(credentials[0]==='admin' && credentials[1]==='s3cr3t') {
       next();
     }
     else {
