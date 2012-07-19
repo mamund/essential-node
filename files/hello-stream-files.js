@@ -19,10 +19,12 @@ function handler(req, res) {
     return;
   }
 
-  // fixup requested file
-  fi = path.join(basePath, url.parse(req.url).pathname);
-  if(fi==='./') {
-    fi = basePath + 'files/home.html';
+  // determine requested file
+  if(req.url==='/') {
+    fi = basePath + 'home.html';
+  }
+  else {
+    fi = path.join(basePath, url.parse(req.url).pathname);
   }
 
   // stream to caller

@@ -1,7 +1,9 @@
 /* essential node examples */
+/* check into using rstatu.us instead of identica */
 /* hello web */
 
 var http = require('http');
+var port = (process.env.PORT || 1337);
 var fs = require('fs');
 
 function handler(req, res) {
@@ -114,4 +116,4 @@ function handler(req, res) {
 
 }
 
-http.createServer(handler).listen(process.env.PORT);
+http.createServer(handler).listen(port);

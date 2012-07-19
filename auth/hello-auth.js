@@ -40,7 +40,7 @@ function handler(req, res) {
 
   /* get home template */
   function getHomePage() {
-    fs.readFile('./auth/home.html', 'ascii', sendHomePage);
+    fs.readFile('./home.html', 'ascii', sendHomePage);
   }
   function sendHomePage(err, data) {
     if(err) {
@@ -56,7 +56,7 @@ function handler(req, res) {
 
   /* get home template */
   function getSecurePage() {
-    fs.readFile('./auth/secure.html', 'ascii', sendSecurePage);
+    fs.readFile('./secure.html', 'ascii', sendSecurePage);
   }
   function sendSecurePage(err, data) {
     if(err) {
@@ -129,4 +129,4 @@ function handler(req, res) {
   }
 }
 
-http.createServer(handler).listen(process.env.PORT);
+http.createServer(handler).listen(process.env.PORT||1337);

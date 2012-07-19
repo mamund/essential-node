@@ -3,6 +3,7 @@
 
 // modules
 var http = require('http');
+var port = (process.env.PORT || 1337);
 var querystring = require('querystring');
 
 function handler(req, res) {
@@ -65,4 +66,4 @@ function handler(req, res) {
 
 }
 
-http.createServer(handler).listen(process.env.PORT);
+http.createServer(handler).listen(port);

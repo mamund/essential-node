@@ -1,27 +1,27 @@
-/* essential node */
-/* hello form */
+/* export hello-form */
 
-// modules
-var http = require('http');
-var port = (process.env.PORT || 1337);
 var querystring = require('querystring');
 
-http.createServer(handler).listen(port);
+/* export from this module */
+module.exports = main;
 
+/* private code */
 var g = {};
 g.url = '/';
 g.textHtml = {'Content-Type':'text/html'};
-g.form = '<h1>hello, form!</h1>'
-  + '<form method="post" action="/" >'
-  + '<label>Email: </label>'
-  + '<input name="email" type="email" value="" placeholder="user@example.org" required="true" />'
-  + '<input type="submit" />'
-  + '</form>';
-g.output = '<h1>hello, form!</h1>'
-  + '<p>{@email}</p>'
-  + '<p><a href="/">return</a></p>';
 
-function handler(req, res) {
+g.form = '<h1>hello, form!</h1>' +
+  '<form method="post" action="/" >' +
+  '<label>Email: </label>' +
+  '<input name="email" type="email" value="" placeholder="user@example.org" required="true" />' +
+  '<input type="submit" />' +
+  '</form>';
+
+g.output = '<h1>hello, form!</h1>' +
+  '<p>{@email}</p>' +
+  '<p><a href="/">return</a></p>';
+
+function main(req, res) {
 
   if(req.url === g.url) {
     switch(req.method) {

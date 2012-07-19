@@ -6,29 +6,28 @@ var fs = require('fs');
 var url = require('url');
 var path = require('path');
 
-// npm isntall mime
+// npm install mime
 var mime = require('mime');
+
+var port = (process.env.PORT||1337);
 
 function handler(req,res) {
 
   var m = {};
 
-  // unique per instance, right?
   m.doc = '';
   m.name = '';
   m.start = '.';
   m.req = req;
   m.res = res;
 
-  // global/static?
-  m.dir = './files/home.html';
+  m.dir = './home.html';
   m.textHtml = {'content-type' : 'text/html'};
 
   m.doc = url.parse(req.url).pathname;
   m.name = path.join(m.start, m.doc);
 
-  // this creates a function for each interation, right?
-  path.exists(m.name, function(exists){getFile(exists, m);});
+  fs.exists(m.name, function(exists){getFile(exists, m);});
 }
 
 function getFile(exists, m) {
@@ -57,4 +56,4 @@ function sendFile(err, file, m) {
   }
 }
 
-http.createServer(handler).listen(process.env.PORT);
+http.createServer(handler).listen(port);

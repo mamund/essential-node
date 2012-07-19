@@ -8,8 +8,7 @@ var querystring = require('querystring');
 
 // global vars
 var g = {};
-g.host = '0.0.0.0';
-g.port = (process.env.PORT ? process.env.PORT : 80);
+g.port = (process.env.PORT ? process.env.PORT : 1337);
 
 /* handle requests */
 function handler(req, res) {
@@ -58,6 +57,8 @@ function handler(req, res) {
           showError(405, 'Method not allowed');
         }
         break;
+      case '/favicon.ico':
+	break;
       default:
         showError(404, 'Page not found');
         break;
@@ -65,7 +66,7 @@ function handler(req, res) {
   }
 
   function getHomePage() {
-    fs.readFile('./storage/home.html','ascii', function(err, data) {
+    fs.readFile('./home.html','ascii', function(err, data) {
       if(err) {
         showError(500, err.message);
       }
@@ -132,7 +133,7 @@ function handler(req, res) {
           showError(500, err.message);
         }
         else {
-          res.writeHead(200, "OK", m.textHtml);
+          res.writeHead(301, "OK", {'content-type':'text/html', 'location':'/'});
           res.end('eof');
         }
       });
@@ -155,7 +156,7 @@ function handler(req, res) {
           showError(500, err.message);
         }
         else {
-          res.writeHead(200, "OK", m.textHtml);
+          res.writeHead(301, "OK", {'content-type' : 'text/html', 'location' : '/'});
           res.end('eof');
         }
       });
@@ -192,4 +193,4 @@ function handler(req, res) {
 }
 
 /* listen for callers */
-http.createServer(handler).listen(g.port, g.host);
+http.createServer(handler).listen(g.port);
